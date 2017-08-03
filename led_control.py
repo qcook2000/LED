@@ -3,9 +3,9 @@ import bibliopixel
 bibliopixel.log.setLogLevel(bibliopixel.log.DEBUG)
 
 # Load driver for the AllPixel
-from bibliopixel.drivers.serial import *
-# set number of pixels & LED type here
-driver = Serial(num = 10, ledtype = LEDTYPE.WS2812B)
+from bibliopixel.drivers.SimPixel import *
+# set number of pixels & LED type here http://simpixel.io/
+driver = SimPixel(num = 300)
 
 # load the LEDStrip class
 from bibliopixel.layout import *
