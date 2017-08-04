@@ -4,6 +4,10 @@ from bibliopixel.animation import *
 from bibliopixel.layout import *
 from bibliopixel.drivers.SimPixel import *
 
+import logging, sys
+
+import click
+
 from BiblioAnimations.BiblioPixelAnimations.strip.Alternates import *
 from BiblioAnimations.BiblioPixelAnimations.strip.BinaryEpochClock import *
 from BiblioAnimations.BiblioPixelAnimations.strip.ColorChase import *
@@ -22,10 +26,6 @@ from BiblioAnimations.BiblioPixelAnimations.strip.Searchlights import *
 from BiblioAnimations.BiblioPixelAnimations.strip.Wave import *
 from BiblioAnimations.BiblioPixelAnimations.strip.WhiteTwinkle import *
 from BiblioAnimations.BiblioPixelAnimations.strip.hexclock import *
-
-
-# causes frame timing information to be output
-bibliopixel.log.setLogLevel(bibliopixel.log.DEBUG)
 
 # set number of pixels & LED type here http://simpixel.io/
 driver = SimPixel(num = 300)
@@ -61,11 +61,28 @@ animationIndex = 0
 
 def getNextAnimation(i) :
     global animationIndex
-    inputKey = input("Now: " + animations[animationIndex].__class__.__name__ + " | Press ←↑→↓ or 0-Z") 
+
+    click.echo("Now: " + animations[animationIndex].__class__.__name__ + " | Press ←↑→↓ or 0-Z: ", nl=False)
+    k = click.getchar()
+    click.echo()
+
     animations[animationIndex].completed = True
-    animationIndex = i
+
+    if k=='\x1b[A' or k=='\x1b[C': # up or right
+        animationIndex += 1
+    elif k=='\x1b[B' or k=='\x1b[D': # down or left
+        animationIndex -= 1
+    else:
+        print("not an arrow key!")
+        raise KeyboardInterrupt
+
+    while animationIndex < 0:
+        animationIndex += len(animations)
+
+    while animationIndex >= len(animations):
+        animationIndex -= len(animations)
+
     animations[animationIndex].run(until_complete = True, threaded = True)
-    # amt = 1, fps=None, sleep=None, max_steps = 0, untilComplete = False, max_cycles = 0, threaded = False, joinThread = False
 
 
 try:
