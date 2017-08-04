@@ -61,10 +61,10 @@ animationIndex = 0
 
 def getNextAnimation(i) :
     global animationIndex
-    animations[0].complete = True
-    animationIndex = i
     inputKey = input("Now: " + animations[animationIndex].__class__.__name__ + " | Press ←↑→↓ or 0-Z") 
-    animations[i].run(threaded = True)
+    animations[animationIndex].completed = True
+    animationIndex = i
+    animations[animationIndex].run(until_complete = True, threaded = True)
     # amt = 1, fps=None, sleep=None, max_steps = 0, untilComplete = False, max_cycles = 0, threaded = False, joinThread = False
 
 
