@@ -1,0 +1,3 @@
+[submodule "BiblioAnimations"]
+	path = BiblioAnimations
+	url = git@github.com:ManiacalLabs/BiblioPixelAnimations.git

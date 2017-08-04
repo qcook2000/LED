@@ -5,7 +5,7 @@ from bibliopixel.layout import *
 from bibliopixel.drivers.SimPixel import *
 
 # causes frame timing information to be output
-bibliopixel.log.setLogLevel(bibliopixel.log.DEBUG)
+# bibliopixel.log.setLogLevel(bibliopixel.log.DEBUG)
 
 # set number of pixels & LED type here http://simpixel.io/
 driver = SimPixel(num = 300)
