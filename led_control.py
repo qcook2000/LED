@@ -42,52 +42,46 @@ ledStrip = Strip(driver)
 animationIndex = 0
 currentAnimation = None
 animationNames = [
-        # "Alternates",
-        # "BEClock",
-        # "ColorChase",
-        # "ColorFade",
-        # "ColorPattern",
-        # "ColorWipe",
+        "Alternates",
+        "ColorChase",
+        "ColorFade",
+        "ColorPattern",
+        "ColorWipe",
         "FireFlies",
-        # "HalvesRainbow",
-        # "LarsonRainbow",
-        # "LarsonScanner",
-        # "LinearRainbow",
-        # "PartyMode",
-        # "PixelPingPong",
-        # "RGBClock",
-        "Rainbow"#,
-        # "RainbowCycle",
-        # "Searchlights",
-        # "Wave",
-        # "WaveMove",
-        # "WhiteTwinkle",
-        # "HEXClock"
+        "HalvesRainbow",
+        "LarsonRainbow",
+        "LarsonScanner",
+        "LinearRainbow",
+        "PartyMode",
+        "PixelPingPong",
+        "Rainbow",
+        "RainbowCycle",
+        "Searchlights",
+        "Wave",
+        "WaveMove",
+        "WhiteTwinkle",
         ]
 
 def getNewAnimationForName(name) :
     global ledStrip
-    if   name == "Alternates":    return Alternates()                               #layout, max_led=-1, color1=(255, 255, 255), color2=(0, 0, 0) 
-    elif name == "BEClock":       return BEClock()                                  #layout, onColor=colors.Red, offColor=colors.Off, bitWidth=1, bitSpace=1, reverse=False
-    elif name == "ColorChase":    return ColorChase()                               #layout, color=[255, 0, 0], width=1, start=0, end=-1
-    elif name == "ColorFade":     return ColorFade()                                #layout, colors=[colors.Red], step=5, start=0, end=-1
-    elif name == "ColorPattern":  return ColorPattern()                             #layout, colors=[colors.Red, colors.Green, colors.Blue], width=1, dir=True, start=0, end=-1
-    elif name == "ColorWipe":     return ColorWipe()                                #layout, color=[255, 0, 0], start=0, end=-1
-    elif name == "FireFlies":     return FireFlies(ledStrip, [colors.White], 1, 10) #layout, colors=[colors.Red], width=1, count=1, start=0, end=-1
-    elif name == "HalvesRainbow": return HalvesRainbow()                            #layout, max_led=-1, centre_out=True, rainbow_inc=4
-    elif name == "LarsonRainbow": return LarsonRainbow()                            #layout, tail=2, start=0, end=-1
-    elif name == "LarsonScanner": return LarsonScanner()                            #layout, color=colors.Red, tail=2, start=0, end=-1
-    elif name == "LinearRainbow": return LinearRainbow()                            #layout, max_led=-1, individual_pixel=False
-    elif name == "PartyMode":     return PartyMode()                                #layout, colors=[colors.Red, colors.Green, colors.Blue], start=0, end=-1
-    elif name == "PixelPingPong": return PixelPingPong()                            #layout, max_led=None, color=(255, 255, 255), total_pixels=1, fade_delay=1
-    elif name == "RGBClock":      return RGBClock()                                 #layout, hStart=0, hEnd=0, mStart=1, mEnd=1, sStart=2, sEnd=2
-    elif name == "Rainbow":       return Rainbow(ledStrip)                           #layout, start=0, end=-1
-    elif name == "RainbowCycle":  return RainbowCycle()                             #
-    elif name == "Searchlights":  return Searchlights()                             #layout, colors=[colors.MediumSeaGreen, colors.MediumPurple, colors.MediumVioletRed], tail=5, start=0, end=-1
-    elif name == "Wave":          return Wave()                                     #layout, color=colors.Red, cycles=2, start=0, end=-1
-    elif name == "WaveMove":      return WaveMove()                                 #layout, color=colors.Red, cycles=2, start=0, end=-1
-    elif name == "WhiteTwinkle":  return WhiteTwinkle()                             #layout, max_led=None, density=80, speed=2, max_bright=255
-    elif name == "HEXClock":      return HEXClock()                                 #layout
+    if   name == "Alternates":    return Alternates(ledStrip, max_led=-1, color1=(255, 255, 255), color2=(0, 0, 0))
+    elif name == "ColorChase":    return ColorChase(ledStrip, color=[255, 0, 0], width=1, start=0, end=-1)
+    elif name == "ColorFade":     return ColorFade(ledStrip, colors=[colors.Red], step=5, start=0, end=-1)
+    elif name == "ColorPattern":  return ColorPattern(ledStrip, colors=[colors.Red, colors.Green, colors.Blue], width=1, dir=True, start=0, end=-1)
+    elif name == "ColorWipe":     return ColorWipe(ledStrip, color=[255, 0, 0], start=0, end=-1)
+    elif name == "FireFlies":     return FireFlies(ledStrip, colors=[colors.White], width=1, count=1, start=0, end=-1)
+    elif name == "HalvesRainbow": return HalvesRainbow(ledStrip, max_led=-1, centre_out=True, rainbow_inc=4)
+    elif name == "LarsonRainbow": return LarsonRainbow(ledStrip, tail=2, start=0, end=-1)
+    elif name == "LarsonScanner": return LarsonScanner(ledStrip, color=colors.Red, tail=2, start=0, end=-1)
+    elif name == "LinearRainbow": return LinearRainbow(ledStrip, max_led=-1, individual_pixel=False)
+    elif name == "PartyMode":     return PartyMode(ledStrip, colors=[colors.Red, colors.Green, colors.Blue], start=0, end=-1)
+    elif name == "PixelPingPong": return PixelPingPong(ledStrip, max_led=None, color=(255, 255, 255), total_pixels=1, fade_delay=1)
+    elif name == "Rainbow":       return Rainbow(ledStrip, start=0, end=-1)
+    elif name == "RainbowCycle":  return RainbowCycle(ledStrip, start=0, end=-1)
+    elif name == "Searchlights":  return Searchlights(ledStrip, colors=[colors.MediumSeaGreen, colors.MediumPurple, colors.MediumVioletRed], tail=5, start=0, end=-1)
+    elif name == "Wave":          return Wave(ledStrip, color=colors.Red, cycles=2, start=0, end=-1)
+    elif name == "WaveMove":      return WaveMove(ledStrip, color=colors.Red, cycles=2, start=0, end=-1)
+    elif name == "WhiteTwinkle":  return WhiteTwinkle(ledStrip, max_led=None, density=80, speed=2, max_bright=255)
     else:
         print("Used bad animation name: " + name)
         return 
