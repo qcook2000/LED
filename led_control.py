@@ -2,7 +2,7 @@ import bibliopixel
 from bibliopixel import *
 from bibliopixel.animation import *
 from bibliopixel.layout import *
-from bibliopixel.drivers.SimPixel import *
+from bibliopixel.drivers.SPI.APA102 import *
 
 import logging, sys
 
@@ -28,7 +28,8 @@ from BiblioAnimations.BiblioPixelAnimations.strip.WhiteTwinkle import *
 from BiblioAnimations.BiblioPixelAnimations.strip.hexclock import *
 
 # set number of pixels & LED type here http://simpixel.io/
-driver = SimPixel(num = 300)
+# driver = SimPixel(num = 100)
+driver = APA102(num = 100)
 
 # load the LEDStrip class
 ledStrip = Strip(driver)
@@ -74,6 +75,8 @@ def getNextAnimation(i) :
         animationIndex -= 1
     else:
         print("not an arrow key!")
+        ledStrip.all_off()
+        ledStrip.update()
         raise KeyboardInterrupt
 
     while animationIndex < 0:
