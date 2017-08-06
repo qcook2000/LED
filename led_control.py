@@ -114,6 +114,8 @@ def getNextAnimation() :
     elif k=='\x1b[B' or k=='\x1b[D': # down or left
         animationIndex -= 1
     elif k=='x':
+        ledStrip.all_off()
+        ledStrip.update()
         raise KeyboardInterrupt
     else:
         print("Not an arrow key, turning off. If you would like to exit press \'x\'")
