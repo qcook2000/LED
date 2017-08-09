@@ -1,12 +1,12 @@
 # LED
 ---
 This is to control APA102 LED strips from python 3.4+ on a Raspberry Pi.
+
 ---
 
 Physical items used:
-    - Raspberry Pi 3
-        -from canakit.com: http://www.canakit.com/raspberry-pi-3-model-b.html
-            - includes wifi card, mini-usb power, hdmi cable
+- Raspberry Pi 3
+    * from canakit.com: http://www.canakit.com/raspberry-pi-3-model-b.html
     * 32GB micro SD card
     * APA102 LED strips (5M strips bought, which have different amperage requirements)
     * AllPixel: http://maniacallabs.com/allpixel/
