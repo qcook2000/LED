@@ -38,91 +38,78 @@ else:
 # load the LEDStrip class
 ledStrip = Strip(driver)
 
-
 animationIndex = 0
-currentAnimation = None
-animationNames = [
-        "Alternates",
-        "ColorChase",
-        "ColorFade",
-        "ColorPattern",
-        "ColorWipe",
-        "FireFlies",
-        "HalvesRainbow",
-        "LarsonRainbow",
-        "LarsonScanner",
-        "LinearRainbow",
-        "PartyMode",
-        "PixelPingPong",
-        "Rainbow",
-        "RainbowCycle",
-        "Searchlights",
-        "Wave",
-        "WaveMove",
-        "WhiteTwinkle",
-        ]
-
-def getNewAnimationForName(name) :
-    global ledStrip
-    if   name == "Alternates":    return Alternates(ledStrip, max_led=-1, color1=(255, 255, 255), color2=(0, 0, 0))
-    elif name == "ColorChase":    return ColorChase(ledStrip, color=[255, 0, 0], width=1, start=0, end=-1)
-    elif name == "ColorFade":     return ColorFade(ledStrip, colors=[colors.Red], step=5, start=0, end=-1)
-    elif name == "ColorPattern":  return ColorPattern(ledStrip, colors=[colors.Red, colors.Green, colors.Blue], width=1, dir=True, start=0, end=-1)
-    elif name == "ColorWipe":     return ColorWipe(ledStrip, color=[255, 0, 0], start=0, end=-1)
-    elif name == "FireFlies":     return FireFlies(ledStrip, colors=[colors.White], width=1, count=1, start=0, end=-1)
-    elif name == "HalvesRainbow": return HalvesRainbow(ledStrip, max_led=-1, centre_out=True, rainbow_inc=4)
-    elif name == "LarsonRainbow": return LarsonRainbow(ledStrip, tail=2, start=0, end=-1)
-    elif name == "LarsonScanner": return LarsonScanner(ledStrip, color=colors.Red, tail=2, start=0, end=-1)
-    elif name == "LinearRainbow": return LinearRainbow(ledStrip, max_led=-1, individual_pixel=False)
-    elif name == "PartyMode":     return PartyMode(ledStrip, colors=[colors.Red, colors.Green, colors.Blue], start=0, end=-1)
-    elif name == "PixelPingPong": return PixelPingPong(ledStrip, max_led=None, color=(255, 255, 255), total_pixels=1, fade_delay=1)
-    elif name == "Rainbow":       return Rainbow(ledStrip, start=0, end=-1)
-    elif name == "RainbowCycle":  return RainbowCycle(ledStrip, start=0, end=-1)
-    elif name == "Searchlights":  return Searchlights(ledStrip, colors=[colors.MediumSeaGreen, colors.MediumPurple, colors.MediumVioletRed], tail=5, start=0, end=-1)
-    elif name == "Wave":          return Wave(ledStrip, color=colors.Red, cycles=2, start=0, end=-1)
-    elif name == "WaveMove":      return WaveMove(ledStrip, color=colors.Red, cycles=2, start=0, end=-1)
-    elif name == "WhiteTwinkle":  return WhiteTwinkle(ledStrip, max_led=None, density=80, speed=2, max_bright=255)
-    else:
-        print("Used bad animation name: " + name)
-        return 
-
+activeAnim = None
+aK = list("1234567890wertyuiop")
+animations = {
+        aK[0]: { "c": Alternates, "args": dict(max_led=-1, color1=(255, 255, 255), color2=(0, 0, 0)) },
+        aK[1]: { "c": ColorChase, "args": dict(color=[255, 0, 0], width=1) },
+        aK[2]: { "c": ColorFade, "args": dict(colors=[colors.Red], step=5) },
+        aK[3]: { "c": ColorPattern, "args": dict(colors=[colors.Red, colors.Green, colors.Blue], width=1, dir=True) },
+        aK[4]: { "c": ColorWipe, "args": dict(color=[255, 0, 0]) },
+        aK[5]: { "c": FireFlies, "args": dict(colors=[colors.White], width=1, count=1) },
+        aK[6]: { "c": HalvesRainbow, "args": dict(max_led=-1, centre_out=True, rainbow_inc=4) },
+        aK[7]: { "c": LarsonRainbow, "args": dict(tail=2) },
+        aK[8]: { "c": LarsonScanner, "args": dict(color=colors.Red, tail=2) },
+        aK[9]: { "c": LinearRainbow, "args": dict(max_led=-1, individual_pixel=False) },
+        aK[10]: { "c": PartyMode, "args": dict(colors=[colors.Red, colors.Green, colors.Blue]) },
+        aK[11]: { "c": PixelPingPong, "args": dict(max_led=None, color=(255, 255, 255), total_pixels=1, fade_delay=1) },
+        aK[12]: { "c": Rainbow, "args": dict() },
+        aK[13]: { "c": RainbowCycle, "args": dict() },
+        aK[14]: { "c": Searchlights, "args": dict(colors=[colors.MediumSeaGreen, colors.MediumPurple, colors.MediumVioletRed], tail=5) },
+        aK[15]: { "c": Wave, "args": dict(color=colors.Red, cycles=2) },
+        aK[16]: { "c": WaveMove, "args": dict(color=colors.Red, cycles=2) },
+        aK[17]: { "c": WhiteTwinkle, "args": dict(max_led=None, density=80, speed=2, max_bright=255)}
+}
+animationKeys = aK[0:17]
 
 def getNextAnimation() :
     global animationIndex
-    global currentAnimation
+    global activeAnim
 
-    currentAnimName = "OFF" if currentAnimation == None else currentAnimation.__class__.__name__
+    label = "OFF" if activeAnim == None else activeAnim.__class__.__name__
         
-    click.echo("Now: " + currentAnimName + " | Press ←↑→↓ or 0-Z: ", nl=False)
+    click.echo("Now: " + label + " | Press ←↑→↓, 0-" + animationKeys[-1] + ", space for index or delete for off: ", nl=False)
     k = click.getchar()
     click.echo()
-
-    # Clean up current animation
-    if currentAnimation != None:
-        currentAnimation.completed = True
-        currentAnimation = None
 
     # Find next animation
     if k=='\x1b[A' or k=='\x1b[C': # up or right
         animationIndex += 1
     elif k=='\x1b[B' or k=='\x1b[D': # down or left
         animationIndex -= 1
-    elif k=='x':
+    elif k in animationKeys:
+        animationIndex = animationKeys.index(k)
+    elif k==' ':
+        for key in animationKeys: print(key + ": " + animations[key]["c"].__name__)
+        return
+    elif k=='\x1b':
         ledStrip.all_off()
         ledStrip.update()
         raise KeyboardInterrupt
-    else:
-        print("Not an arrow key, turning off. If you would like to exit press \'x\'")
+    elif k=='\x08' or k=='\x7f': 
         ledStrip.all_off()
         ledStrip.update()
+        if activeAnim != None:
+            activeAnim.completed = True
+            activeAnim = None
+        return
+    else:
+        print("No matching command. If you would like to exit press \'esc\'")
         return
 
-    # Fix the index if its over / under
-    while animationIndex < 0: animationIndex += len(animationNames)
-    while animationIndex >= len(animationNames): animationIndex -= len(animationNames)
+    # Clean up current animation
+    if activeAnim != None:
+        activeAnim.completed = True
+        activeAnim = None
 
-    currentAnimation = getNewAnimationForName(animationNames[animationIndex])
-    currentAnimation.run(until_complete = True, threaded = True)
+    # Fix the index if its over / under
+    while animationIndex < 0: animationIndex += len(animationKeys)
+    while animationIndex >= len(animationKeys): animationIndex -= len(animationKeys)
+
+    activeAnimDict = animations[animationKeys[animationIndex]]
+    activeAnim = activeAnimDict["c"](ledStrip, **(activeAnimDict["args"]))
+    activeAnim.run(until_complete = True, threaded = True)
 
 try:
     # Start initial animation
