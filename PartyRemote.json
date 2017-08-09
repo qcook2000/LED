@@ -80,7 +80,7 @@
         "port": 5000
     },
     "driver": {
-        "num": 100, "typename": "simpixel"
+        "num": 100, "typename": "serial", "ledtype":"APA102"
     },
     "layout": { "typename": "strip"
     }

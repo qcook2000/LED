@@ -1,14 +1,15 @@
 # LED
-
+---
 This is to control APA102 LED strips from python 3.4+ on a Raspberry Pi.
-
+---
 
 Physical items used:
     - Raspberry Pi 3
-        - from canakit.com: http://www.canakit.com/raspberry-pi-3-model-b.html
+        -from canakit.com: http://www.canakit.com/raspberry-pi-3-model-b.html
             - includes wifi card, mini-usb power, hdmi cable
-        - 8GB micro SD card
-    - APA102 LED strips (5M strips bought, cut into 100 led increments)
+    * 32GB micro SD card
+    * APA102 LED strips (5M strips bought, which have different amperage requirements)
+    * AllPixel: http://maniacallabs.com/allpixel/
 
 Setup on the Raspberry Pi:
     - Download Raspbian Jessie Lite image:
@@ -24,11 +25,17 @@ Setup on the Raspberry Pi:
         - Follow these instructions, along with loading your wifi credentials, to setup wifi.
         - https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
 
+    - Edit config:
+        - sudo raspi-config
+            - Set SPI, SSH and Expand File System
+            - Reboot
+
     - Setup PixelWeb
 # Install non-python reqs
 sudo apt-get install git python-pip python-dev python-pyaudio libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk 
+sudo pip install pip --upgrade
 # Install Python Reqs
-sudo -H pip install pyaudio numpy pillow
+sudo -H pip install pyaudio numpy pillow spidev
 # Run Pixel Web
 sudo run-pixelweb
 
