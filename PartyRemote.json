@@ -2,46 +2,54 @@
         "title": "Strip Demo", "typename": "remote",
         "animations": [ 
             { "animation": { "typename": "BiblioPixelAnimations.strip.Alternates.Alternates",
-                    "name": "Alternates" }, 
-            "run": { "fps": 30 } }, { 
-            "animation": { "typename": "BiblioPixelAnimations.strip.BinaryEpochClock.BEClock",
-                    "name": "BEClock" }, 
+                    "name": "Alternates",
+                    "max_led":-1, "color1":[255, 255, 255], "color2":[0, 0, 0] }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.ColorChase.ColorChase",
-                    "name": "ColorChase" }, 
+                    "name": "ColorChase",
+                    "color":[255, 0, 0], "width":1 }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.ColorFade.ColorFade",
-                    "name": "ColorFade" }, 
+                    "name": "ColorFade",
+                    "colors":[[255, 0, 0]], "step":5 }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.ColorPattern.ColorPattern",
-                    "name": "ColorPattern" }, 
+                    "name": "ColorPattern",
+                    "colors":[[255, 0, 0], [0, 255, 0], [0, 0, 255]], "width":1, "dir":true }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.ColorWipe.ColorWipe",
-                    "name": "ColorWipe" }, 
+                    "name": "ColorWipe",
+                    "color":[255, 0, 0] }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.FireFlies.FireFlies",
-                    "name": "FireFlies" }, 
+                    "name": "FireFlies",
+                    "colors": [[255, 255, 255]],
+                    "width":1,
+                    "count": 10  }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.HalvesRainbow.HalvesRainbow",
-                    "name": "HalvesRainbow" }, 
+                    "name": "HalvesRainbow",
+                    "max_led":-1, "centre_out":true, "rainbow_inc":4 }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.LarsonScanners.LarsonRainbow",
-                    "name": "LarsonRainbow" }, 
+                    "name": "LarsonRainbow",
+                    "tail":2 }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.LarsonScanners.LarsonScanner",
-                    "name": "LarsonScanner" }, 
+                    "name": "LarsonScanner",
+                    "color":[255, 0, 0], "tail":2 }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.LinearRainbow.LinearRainbow",
-                    "name": "LinearRainbow" }, 
+                    "name": "LinearRainbow",
+                    "max_led":-1, "individual_pixel":false }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.PartyMode.PartyMode",
-                    "name": "PartyMode" }, 
+                    "name": "PartyMode",
+                    "colors":[[255, 0, 0], [0, 255, 0], [0, 0, 255]] }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.PixelPingPong.PixelPingPong",
-                    "name": "PixelPingPong" }, 
-            "run": { "fps": 30 } }, { 
-            "animation": { "typename": "BiblioPixelAnimations.strip.RGBClock.RGBClock",
-                    "name": "RGBClock" }, 
+                    "name": "PixelPingPong",
+                    "max_led":null, "color":[255, 255, 255], "total_pixels":1, "fade_delay":1 }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.Rainbows.Rainbow",
                     "name": "Rainbow" }, 
@@ -50,21 +58,21 @@
                     "name": "RainbowCycle" }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.Searchlights.Searchlights",
-                    "name": "Searchlights" }, 
+                    "name": "Searchlights",
+                    "colors":[[255, 0, 0], [0, 255, 0], [0, 0, 255]], "tail":5 }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.Wave.Wave",
-                    "name": "Wave" }, 
+                    "name": "Wave",
+                    "color":[255, 0, 0], "cycles":2 }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.Wave.WaveMove",
-                    "name": "WaveMove" }, 
+                    "name": "WaveMove",
+                    "color":[255, 0, 0], "cycles":2 }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.WhiteTwinkle.WhiteTwinkle",
-                    "name": "WhiteTwinkle" }, 
-            "run": { "fps": 30 } }, { 
-            "animation": { "typename": "BiblioPixelAnimations.strip.hexclock.HEXClock",
-                    "name": "HEXClock"
-            }, "run": { "fps": 30 }
-            }
+                    "name": "WhiteTwinkle",
+                    "max_led":null, "density":80, "speed":2, "max_bright":255 }, 
+            "run": { "fps": 30 } }
         ],
         "default": null,
         "bgcolor": "black",
