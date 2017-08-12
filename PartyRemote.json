@@ -22,8 +22,20 @@
                     "color":[255, 0, 0] }, 
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.FireFlies.FireFlies",
-                    "name": "FireFlies",
+                    "name": "RedFireflies",
                     "colors": [[0, 0, 255]],
+                    "width":1,
+                    "count": 10  }, 
+            "run": { "fps": 30 } }, { 
+	    "animation": { "typename": "BiblioPixelAnimations.strip.FireFlies.FireFlies",
+                    "name": "GreenFireflies",
+                    "colors": [[0, 255, 0]],
+                    "width":1,
+                    "count": 10  }, 
+            "run": { "fps": 30 } }, { 
+ 	    "animation": { "typename": "BiblioPixelAnimations.strip.FireFlies.FireFlies",
+                    "name": "BlueFireflies",
+                    "colors": [[255, 0, 0]],
                     "width":1,
                     "count": 10  }, 
             "run": { "fps": 30 } }, { 
