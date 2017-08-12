@@ -23,7 +23,7 @@
             "run": { "fps": 30 } }, { 
             "animation": { "typename": "BiblioPixelAnimations.strip.FireFlies.FireFlies",
                     "name": "FireFlies",
-                    "colors": [[255, 255, 255]],
+                    "colors": [[0, 0, 255]],
                     "width":1,
                     "count": 10  }, 
             "run": { "fps": 30 } }, { 
@@ -80,7 +80,11 @@
         "port": 5000
     },
     "driver": {
-        "num": 100, "typename": "serial", "ledtype":"APA102"
+        "num": 100,
+        "width": 1,
+        "height": 1,
+        "typename": "serial",
+        "ledtype":"APA102"
     },
     "layout": { "typename": "strip"
     }
