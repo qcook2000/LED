@@ -11,7 +11,7 @@
   </head>
   <body>
     <h1>Hello, world!</h1>
-    <div id="master"></div>
+    <div id="master" role="tablist"></div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -24,6 +24,17 @@
 
         $.getJSON("PartyRemote.json", function(json) {
             project = json['animation']['animations']
+            for (var key in obj) {
+                var animCard = $('<div class="card"><div class="card-header" role="tab" id="head' + obj['animation']['typename'] + '"><h5 class="mb-0">' +
+                                    '<a data-toggle="collapse"  aria-expanded="true" aria-controls="body' + obj['animation']['typename'] + '">' + obj['animation']['name'] + '</a>' +
+                                '</h5></div>' +
+                                '<div id="body' + obj['animation']['typename'] + '" class="collapse show" role="tabpanel" aria-labelledby="head' + obj['animation']['typename'] + '" data-parent="#accordion">' +
+                                  '<div class="card-body"></div>' +
+                                '</div></div>');
+                animCard.appendTo('#master');
+                animCard.find( ".card-body")
+
+            } 
             printObject(null, project, $('#master'));
         });
 
