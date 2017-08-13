@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var project
+
+        $.getJSON("PartyRemote.json", function(json) {
+            project = json
+            printObject(null, project);
+        });
+
+        function printObject(name, obj) {
+            if (typeof obj === 'number') {
+                console.log("Number: " + name + ": " + obj);
+            } else if (typeof obj === 'string') {
+                console.log("String: " + name + ": " + obj);
+            } else if (typeof obj === 'boolean') {
+                console.log("Bool: " + name + ": " + obj);
+            } else if (Array.isArray(obj) && obj.length == 3 && 
+                typeof obj[0] === 'number' && typeof obj[1] === 'number' && typeof obj[2] === 'number') {
+                // COLOR!
+                console.log("Color: " + name + ": " + obj);
+            } else if (typeof obj === 'object') {
+                console.log("Object: " + name);
+                for (var key in obj) {
+                    printObject(key, obj[key]);
+                }
+            } else {
+                console.log("ERROR");
+            }
+        }
+    </script>
+  </body>
+</html>

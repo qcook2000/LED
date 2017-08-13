@@ -20,9 +20,9 @@ Shopping List
 Raspberry Pi Setup
 ---
 Download Raspbian Jessie Lite image
-- https://www.raspberrypi.org/documentation/installation/installing-images/README.md
+-   https://www.raspberrypi.org/documentation/installation/installing-images/README.md
 Load image to Micro SD, Setup SSH
-- http://blog.smalleycreative.com/linux/setup-a-headless-raspberry-pi-with-raspbian-jessie-on-os-x/
+-   http://blog.smalleycreative.com/linux/setup-a-headless-raspberry-pi-with-raspbian-jessie-on-os-x/
 Insert SD card into the Raspberry Pi. Connect via ethernet to your router.
         - note that if the name isn't immediately obvious, you could brute force in by trying:
             - ssh pi@[ipaddress]
@@ -38,12 +38,18 @@ Edit Raspberry Pi config
 Install SSH for LED/Bibliopixel Github repos
 -   https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 -   note at the step for "ssh-add", use a lowercase k instead.
-Install Python3
--   sudo apt-get install python3
+Install Python3, Pip
+-   sudo apt-get install python3 python3-pip
 
 LED Software
 ---
-
+From the Bibliopixel directory, run:
+- sudo python3 setup.py install
+- sudo pip3 install pyserial --upgrade --ignore-installed
+    - in case of errors, you might need to reinstall this 
+    - https://raspberrypi.stackexchange.com/questions/68837/pyserial-error-on-raspberry-3
+- ls /dev/ttyACM*
+    - Run this to show all USBs attached. Should show up as "/dev/ttyACM0" or similar
 
 
 
