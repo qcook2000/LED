@@ -1,0 +1,8 @@
+#!/bin/sh
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    # Raspberry
+    bibliopixel run PartyRemote.json -d "serial" -t "APA102"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # Mac OSX
+    bibliopixel run PartyRemote.json -d "simpixel"
+fi
