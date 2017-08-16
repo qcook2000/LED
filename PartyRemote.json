@@ -1,5 +1,5 @@
 { "animation": {
-"title": "Strip Demo", 
+"title": "I love lamp", 
 "typename": "remote",
 "animations": [ 
 { "animation": { "typename": "BiblioPixelAnimations.strip.Alternates.Alternates",
@@ -128,17 +128,22 @@
         "max_bright":255 }, 
         "run": { "fps": 30 } }
 ],
-"default": null,
+"default": "WhiteTwinkle",
 "bgcolor": "black",
 "external_access": true,
 "port": 5000
 },
 "driver": {
-"num": 100,
+"num": 200,
 "width": 1,
 "height": 1,
 "c_order": "BGR"
 },
+"drivers": [
+            {"device_id": 1},
+            {"device_id": 2}
+],
+
 "layout": { "typename": "strip"
 }
 }
