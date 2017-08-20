@@ -82,6 +82,11 @@
         "colors":[[255, 0, 0], [0, 255, 0], [0, 0, 255]], 
         "tail":10 }, 
         "run": { "fps": 30} }, { 
+"animation": { "typename": "Searchlights2.Searchlights2",
+        "name": "Searchlights2",
+        "colors":[[255, 0, 0], [0, 255, 0], [0, 0, 255]], 
+        "tail":10 }, 
+        "run": { "fps": 30} }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.Wave.Wave",
         "name": "Wave",
         "color":[255, 255, 255], 
