@@ -1,8 +1,15 @@
 #!/bin/bash
 
 # USAGE: 
-# run -- runs on simpixel
-# run ap -- runs on 3 all pixels
+# run sim [rebuild] -- runs on simpixel with optional rebuild of Bibliopixel
+# run ap [rebuild] -- runs on 3 all pixels with optional rebuild of Bibliopixel
+
+# First install bibliopixel
+if [[ "$2" == "rebuild" ]]; then
+	cd ~/BiblioPixel 
+	python3 setup.py install &> ~/LED/log.txt
+	cd ~/LED
+fi
 
 head -n -1 PartyRemote.json > PartyRemoteCompiled.json
 
