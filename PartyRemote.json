@@ -144,6 +144,4 @@
 "height": 1,
 "c_order": "BGR"
 },
-"layout": { "typename": "strip"
-}
-}
+"layout": { "typename": "strip"}
