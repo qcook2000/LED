@@ -144,11 +144,6 @@
 "height": 1,
 "c_order": "BGR"
 },
-"drivers": [
-            {"device_id": 1},
-            {"device_id": 2}
-],
-
 "layout": { "typename": "strip"
 }
 }

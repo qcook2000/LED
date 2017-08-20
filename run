@@ -1,8 +1,8 @@
 #!/bin/sh
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Raspberry
-    bibliopixel run PartyRemote.json -d "serial" -t "APA102"
+    ~/BiblioPixel/scripts/bibliopixel run PartyRemote.json -d "serial" -t "APA102" -j "'drivers': [{'device_id': 1},{'device_id': 2}]"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
-    bibliopixel run PartyRemote.json -d "simpixel"
+    ~/BiblioPixel/scripts/bibliopixel run PartyRemote.json -d "simpixel"
 fi
