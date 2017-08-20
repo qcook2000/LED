@@ -1,67 +1,90 @@
 { "animation": {
-"title": "Strip Demo", 
+"title": "I love lamp", 
 "typename": "remote",
 "animations": [ 
 { "animation": { "typename": "BiblioPixelAnimations.strip.Alternates.Alternates",
-        "name": "Alternates",
+        "name": "Alternates 1",
         "max_led":-1, 
-        "color1":[251, 0, 26], 
-        "color2":[0, 0, 0] }, 
-        "run": { "fps": 30 } }, { 
+        "color1":[50, 0, 0], 
+        "color2":[0, 125, 255] }, 
+        "run": { "fps": 12 } }, {                
 "animation": { "typename": "BiblioPixelAnimations.strip.ColorChase.ColorChase",
-        "name": "ColorChase",
-        "color":[255, 255, 255], 
-        "width":33}, 
-        "run": { "fps": 30, "amt": 5} }, { 
+        "name": "ColorChase: Ice",
+        "color":[11, 122, 117], 
+        "width":9}, 
+        "run": { "fps": 45, "amt": 3} }, { 
+"animation": { "typename": "BiblioPixelAnimations.strip.ColorChase.ColorChase",
+        "name": "ColorChase: Fire",
+        "color":[255, 50, 0], 
+        "width":9}, 
+        "run": { "fps": 45, "amt": 5} }, {   
+"animation": { "typename": "BiblioPixelAnimations.strip.ColorChase.ColorChase",
+        "name": "ColorChase: Thunder",
+        "color":[255, 226, 33], 
+        "width":9}, 
+        "run": { "fps": 60, "amt": 5} }, {                 
 "animation": { "typename": "BiblioPixelAnimations.strip.ColorFade.ColorFade",
-        "name": "ColorFade",
-        "colors":[[244, 0, 245], [247, 223, 12], [33, 255, 204]], 
+        "name": "ColorFade: PartyMode-1",
+        "colors":[[216, 127, 193], [24, 124, 201], [65, 210, 91], [246, 174, 45], [242, 100, 25]], 
         "step":30 }, 
-        "run": { "fps": 30 } }, { 
+        "run": { "fps": 30, "amt": 2 } }, { 
+"animation": { "typename": "BiblioPixelAnimations.strip.ColorFade.ColorFade",
+        "name": "ColorFade: Purps",
+        "colors":[[97, 63, 117], [163, 133, 96], [144, 122, 214], [44, 42, 74], [127, 222, 255]], 
+        "step":30 }, 
+        "run": { "fps": 40, "amt": 1 } }, {                 
 "animation": { "typename": "BiblioPixelAnimations.strip.ColorPattern.ColorPattern",
-        "name": "ColorPattern",
-        "colors":[[244, 0, 245], [247, 223, 12], [33, 255, 204]], 
-        "width":10, 
+        "name": "ColorPattern: Up",
+        "colors":[[255, 0, 255], [255, 255, 0], [0, 255, 255], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255]], 
+        "width":7, 
         "dir":true }, 
-        "run": { "fps": 30 } }, { 
+        "run": { "fps": 30, "amt": 2} }, { 
+"animation": { "typename": "BiblioPixelAnimations.strip.ColorPattern.ColorPattern",
+        "name": "ColorPattern: Down",
+        "colors":[[255, 0, 255], [255, 255, 0], [0, 255, 255], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255]], 
+        "width":7, 
+        "dir":false }, 
+        "run": { "fps": 30, "amt": 3} }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.ColorWipe.ColorWipe",
         "name": "ColorWipe",
         "color":[255, 255, 255] }, 
         "run": { "fps": 30, "amt":10 } }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.FireFlies.FireFlies",
-        "name": "RedFireflies",
+        "name": "Fireflies: Blue",
         "colors": [[0, 0, 255]],
         "width":1,
         "count": 10  }, 
         "run": { "fps": 30 } }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.FireFlies.FireFlies",
-        "name": "Fireflies Rainbow",
+        "name": "Fireflies: Rainbow",
         "colors": [[255, 0, 255], [255, 255, 0], [0, 255, 255], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255]],
         "width":1,
         "count": 30  }, 
         "run": { "fps": 30 } }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.FireFlies.FireFlies",
-        "name": "GreenFireflies",
+        "name": "Fireflies: Green",
         "colors": [[0, 255, 0]],
         "width":1,
         "count": 10  }, 
         "run": { "fps": 30 } }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.FireFlies.FireFlies",
-        "name": "BlueFireflies",
+        "name": "Fireflies: Red",
         "colors": [[255, 0, 0]],
         "width":1,
         "count": 10  }, 
         "run": { "fps": 30 } }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.HalvesRainbow.HalvesRainbow",
-        "name": "HalvesRainbow",
+        "name": "Rainbow: Whole Strip",
         "max_led":-1, 
         "centre_out":true, 
         "rainbow_inc":4 }, 
-        "run": { "fps": 1200 } }, { 
-"animation": { "typename": "BiblioPixelAnimations.strip.LarsonScanners.LarsonRainbow",
-        "name": "LarsonRainbow",
-        "tail":10 }, 
-        "run": { "fps": 30, "amt":5 } }, { 
+        "run": { "fps": 15 , "amt": 2} }, { 
+"animation": { "typename": "BiblioPixelAnimations.strip.HalvesRainbow.HalvesRainbow",
+        "name": "HalvesRainbow",
+        "max_led":-1, 
+        "centre_out":true, 
+        "rainbow_inc": 12 }, 
+        "run": { "fps": 90 } }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.LarsonScanners.LarsonScanner",
         "name": "Cylon",
         "color":[255, 0, 0], 
@@ -88,13 +111,18 @@
         "tail":10 }, 
         "run": { "fps": 30} }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.Wave.Wave",
-        "name": "Wave",
-        "color":[255, 255, 255], 
+        "name": "Wave: Pink",
+        "color":[255, 0, 80], 
+        "cycles":2 }, 
+        "run": { "fps": 30 } }, { 
+"animation": { "typename": "BiblioPixelAnimations.strip.Wave.Wave",
+        "name": "Wave: Blue",
+        "color":[40, 0, 200], 
         "cycles":2 }, 
         "run": { "fps": 30 } }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.Wave.WaveMove",
         "name": "WaveMove",
-        "color":[255, 255, 255], 
+        "color":[0, 255, 0], 
         "cycles":2 }, 
         "run": { "fps": 30 } }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.WhiteTwinkle.WhiteTwinkle",
@@ -105,7 +133,7 @@
         "max_bright":255 }, 
         "run": { "fps": 30 } }
 ],
-"default": null,
+"default": "WhiteTwinkle",
 "bgcolor": "black",
 "external_access": true,
 "port": 5000
@@ -113,8 +141,14 @@
 "driver": {
 "num": 100,
 "width": 1,
-"height": 1
+"height": 1,
+"c_order": "BGR"
 },
+"drivers": [
+            {"device_id": 1},
+            {"device_id": 2}
+],
+
 "layout": { "typename": "strip"
 }
 }
