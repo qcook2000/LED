@@ -1,8 +1,19 @@
 #!/bin/sh
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+
+# USAGE: 
+# run -- runs on simpixel
+# run ap -- runs on 2 all pixels
+
+cp PartyRemote.json PartyRemoteCompiled.json
+sed -i '' -e '$ d' PartyRemoteCompiled.json
+
+if [[ ("$OSTYPE" == "linux-gnu") || "$1" == "ap" ]]; then
     # Raspberry
-    ~/BiblioPixel/scripts/bibliopixel run PartyRemote.json -d "serial" -t "APA102" -j "'drivers': [{'device_id': 1},{'device_id': 2}]"
+    echo "Run USB"
+    echo ',"drivers": [{"device_id": 1},{"device_id": 2}]}' >> PartyRemoteCompiled.json
+    ~/BiblioPixel/scripts/bibliopixel run PartyRemoteCompiled.json -d "serial" -t "APA102"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
-    ~/BiblioPixel/scripts/bibliopixel run PartyRemote.json -d "simpixel"
+    echo '}' >> PartyRemoteCompiled.json
+    ~/BiblioPixel/scripts/bibliopixel run PartyRemoteCompiled.json -d "simpixel"
 fi
