@@ -10,12 +10,13 @@ Shopping List
     - from canakit.com: http://www.canakit.com/raspberry-pi-3-model-b.html
 - 32GB micro SD card
 - APA102 300 LED strips (5M strips bought, which have different amperage requirements)
+    - 5 strips, requiring 18A each
 - AllPixel: http://maniacallabs.com/allpixel/
 - Soldering Iron, Solder, Solder Adhesive
 - Several Male-Male and Female-Female colored wires
-- Breadboard for testing (replaced by AllPixel)
-- Several Power Supplies, at 15A+ each
+- Power Supply for AllPixel+LED Strip, at 15A each
     - Each power supply will support 3 strips of 100 LEDs
+        - Technically need 18A+, however these are non-standard / difficult to find
 
 Raspberry Pi Setup
 ---
@@ -51,18 +52,20 @@ From the Bibliopixel directory, run:
 - ls /dev/ttyACM*
     - Run this to show all USBs attached. Should show up as "/dev/ttyACM0" or similar
 
-
-
-Setup PixelWeb
-Install non-python reqs
--   sudo apt-get install git python-pip python-dev python-pyaudio libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk 
--   sudo pip install pip --upgrade
- Install Python Reqs
--   sudo -H pip install pyaudio numpy pillow spidev
-Run Pixel Web
--   sudo run-pixelweb
-
-
+Editing Files on the Raspberry Pi from local machine via Sublime Package
+---
+- https://stackoverflow.com/questions/37458814/how-to-open-remote-files-in-sublime-text-3
+- Synopsis of above link:
+    - install rsub on server:
+        - sudo wget -O /usr/local/bin/rsub \https://raw.github.com/aurora/rmate/master/rmate
+        - sudo chmod a+x /usr/local/bin/rsub
+    - Locally, install the "rsub" package
+    - On command line connecting to server: 
+        - ssh -R 52698:localhost:52698 server_user@server_address
+            - for example: 
+                - ssh -R 52698:localhost:52698 pi@10.0.0.154
+    - Navigate to file and open:
+        - rsub file_to_open.txt
 
 Deprecated (unused), but useful info:
 

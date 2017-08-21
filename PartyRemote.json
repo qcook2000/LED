@@ -107,9 +107,9 @@
         "run": { "fps": 30} }, { 
 "animation": { "typename": "Searchlights2.Searchlights2",
         "name": "Searchlights2",
-        "colors":[[255, 0, 0], [0, 255, 0], [0, 0, 255]], 
-        "tail":10 }, 
-        "run": { "fps": 30} }, { 
+        "colors":[[255, 25, 100], [100, 255, 50], [20, 175, 255], [125, 125, 125], [50, 255, 50], [0, 25, 125], [75, 75, 200]],
+        "tail":5 }, 
+        "run": { "fps": 60} }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.Wave.Wave",
         "name": "Wave: Pink",
         "color":[255, 0, 80], 
@@ -133,7 +133,7 @@
         "max_bright":255 }, 
         "run": { "fps": 30 } }
 ],
-"default": "WhiteTwinkle",
+"default": "Searchlights2",
 "bgcolor": "black",
 "external_access": true,
 "port": 5000
