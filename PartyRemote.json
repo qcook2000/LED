@@ -138,12 +138,8 @@
 "external_access": true,
 "port": 5000
 },
+"layout": { "typename": "strip"},
 "driver": {
 "num": 100,
 "width": 1,
-"height": 1,
-"c_order": "BGR"
-},
-"layout": { "typename": "strip"
-}
-}
+"height": 1
