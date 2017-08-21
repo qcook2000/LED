@@ -16,9 +16,9 @@ cp PartyRemote.json PartyRemoteCompiled.json
 
 if [[ "$1" == "ap" ]]; then
     echo "Run USB"
-    echo ',"drivers": [{"device_id": 1},{"device_id": 2},{"device_id": 3}]}' >> PartyRemoteCompiled.json
+    echo ',"c_order": "BGR"}, "drivers": [{"device_id": 1},{"device_id": 2},{"device_id": 3}]}' >> PartyRemoteCompiled.json
     ~/BiblioPixel/scripts/bibliopixel run PartyRemoteCompiled.json -d "serial" -t "APA102"
 else
-    echo '}' >> PartyRemoteCompiled.json
+    echo '}}' >> PartyRemoteCompiled.json
     ~/BiblioPixel/scripts/bibliopixel run PartyRemoteCompiled.json -d "simpixel"
 fi
