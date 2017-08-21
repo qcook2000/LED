@@ -7,7 +7,11 @@
         "max_led":-1, 
         "color1":[50, 0, 0], 
         "color2":[0, 125, 255] }, 
-        "run": { "fps": 12 } }, {                
+        "run": { "fps": 12 } }, {    
+"animation": { "typename": "Alternates2.Alternates2",
+        "name": "Alternates2",
+        "max_led":-1}, 
+        "run": { "fps": 12 } }, {                     
 "animation": { "typename": "BiblioPixelAnimations.strip.ColorChase.ColorChase",
         "name": "ColorChase: Ice",
         "color":[11, 122, 117], 
@@ -133,7 +137,7 @@
         "max_bright":255 }, 
         "run": { "fps": 30 } }
 ],
-"default": "Searchlights2",
+"default": "Alternates2",
 "bgcolor": "black",
 "external_access": true,
 "port": 5000
