@@ -29,7 +29,6 @@ class Searchlights2(BaseStripAnim):
                 dirrand.append(-1)
             else:
                 dirrand.append(1)
-            print(stepsrand)
         self._direction = [1] * self._colorcount
         self._currentpos = [1] * self._colorcount
         self._steps = stepsrand
