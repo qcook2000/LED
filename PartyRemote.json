@@ -148,6 +148,5 @@
 },
 "layout": { "typename": "strip"},
 "driver": {
-"num": 500,
 "width": 1,
-"height": 1
+"height": 1,

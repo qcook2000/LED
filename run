@@ -5,7 +5,7 @@
 # run ap [rebuild] -- runs on 3 all pixels with optional rebuild of Bibliopixel
 
 # First install bibliopixel
-if [[ "$2" == "rebuild" ]]; then
+if [[ "$3" == "rebuild" ]]; then
 	echo "Rebuilding..."
 	cd ~/BiblioPixel
 	sudo python3 setup.py install &> ~/LED/log.txt
@@ -14,11 +14,15 @@ fi
 
 cp PartyRemote.json PartyRemoteCompiled.json
 
-if [[ "$1" == "ap" ]]; then
+if [[ "$2" == "ap" ]]; then
     echo "Run USB"
-    echo ',"c_order": "BGR"}, "drivers": [{"device_id": 1},{"device_id": 2},{"device_id": 3}]}' >> PartyRemoteCompiled.json
+    echo '"num" : '$1',"c_order": "BGR"}, "drivers": [{"device_id": 1}]}' >> PartyRemoteCompiled.json
     ~/BiblioPixel/scripts/bibliopixel run PartyRemoteCompiled.json -d "serial" -t "APA102"
+elif [[ "$2" == "spi" ]]; then
+    echo "Run SPI"
+    echo '"num" : '$1',"c_order": "BGR"}}' >> PartyRemoteCompiled.json
+    ~/BiblioPixel/scripts/bibliopixel run PartyRemoteCompiled.json -d "spi" -t "APA102"    
 else
-    echo '}}' >> PartyRemoteCompiled.json
+    echo '"num" : '$1'}}' >> PartyRemoteCompiled.json
     ~/BiblioPixel/scripts/bibliopixel run PartyRemoteCompiled.json -d "simpixel"
 fi
