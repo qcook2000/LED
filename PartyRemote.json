@@ -49,6 +49,10 @@
         "width":7, 
         "dir":false }, 
         "run": { "fps": 30, "amt": 3} }, { 
+"animation": { "typename": "ColorChase2.ColorChase2",
+        "name": "ColorChase2",
+        "colors":[[255, 0, 255]]},
+        "run": { "fps": 30, "amt": 3} }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.ColorWipe.ColorWipe",
         "name": "ColorWipe",
         "color":[255, 255, 255] }, 
@@ -144,6 +148,6 @@
 },
 "layout": { "typename": "strip"},
 "driver": {
-"num": 100,
+"num": 500,
 "width": 1,
 "height": 1
