@@ -11,22 +11,22 @@
 "animation": { "typename": "Alternates2.Alternates2",
         "name": "Alternates2",
         "max_led":-1}, 
-        "run": { "fps": 12 } }, {                     
-"animation": { "typename": "BiblioPixelAnimations.strip.ColorChase.ColorChase",
+        "run": { "fps": 12 } }, {   
+"animation": { "typename": "ColorChase2.ColorChase2",
         "name": "ColorChase: Ice",
-        "color":[11, 122, 117], 
-        "width":9}, 
-        "run": { "fps": 45, "amt": 3} }, { 
-"animation": { "typename": "BiblioPixelAnimations.strip.ColorChase.ColorChase",
+        "width": 9,
+        "colors":[[11, 122, 117], [11, 122, 117], [11, 122, 117], [11, 122, 117], [11, 122, 117]]},
+        "run": { "fps": 45, "amt": 3} }, {
+"animation": { "typename": "ColorChase2.ColorChase2",
         "name": "ColorChase: Fire",
-        "color":[255, 50, 0], 
-        "width":9}, 
-        "run": { "fps": 45, "amt": 5} }, {   
-"animation": { "typename": "BiblioPixelAnimations.strip.ColorChase.ColorChase",
-        "name": "ColorChase: Thunder",
-        "color":[255, 226, 33], 
-        "width":9}, 
-        "run": { "fps": 60, "amt": 5} }, {                 
+        "width": 9,
+        "colors":[[255, 50, 0], [255, 50, 0], [255, 50, 0], [255, 50, 0], [255, 50, 0]]},
+        "run": { "fps": 45, "amt": 5} }, {
+"animation": { "typename": "ColorChase2.ColorChase2",
+        "name": "ColorChase: Lightning",
+        "width": 9,
+        "colors":[[255, 226, 33],[255, 226, 33],[255, 226, 33],[255, 226, 33],[255, 226, 33]]},
+        "run": { "fps": 60, "amt": 5} }, {
 "animation": { "typename": "BiblioPixelAnimations.strip.ColorFade.ColorFade",
         "name": "ColorFade: PartyMode-1",
         "colors":[[216, 127, 193], [24, 124, 201], [65, 210, 91], [246, 174, 45], [242, 100, 25]], 
@@ -48,10 +48,6 @@
         "colors":[[255, 0, 255], [255, 255, 0], [0, 255, 255], [255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 255]], 
         "width":7, 
         "dir":false }, 
-        "run": { "fps": 30, "amt": 3} }, { 
-"animation": { "typename": "ColorChase2.ColorChase2",
-        "name": "ColorChase2",
-        "colors":[[255, 0, 255]]},
         "run": { "fps": 30, "amt": 3} }, { 
 "animation": { "typename": "BiblioPixelAnimations.strip.ColorWipe.ColorWipe",
         "name": "ColorWipe",
@@ -136,7 +132,7 @@
 "animation": { "typename": "BiblioPixelAnimations.strip.WhiteTwinkle.WhiteTwinkle",
         "name": "WhiteTwinkle",
         "max_led":null, 
-        "density":60, 
+        "density":80, 
         "speed":10, 
         "max_bright":255 }, 
         "run": { "fps": 30 } }
